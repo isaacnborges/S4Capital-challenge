@@ -1,0 +1,44 @@
+name: dotnet-workflow
+
+on:
+  push:
+    branches: [ "main", "release/*" ]
+  pull_request:
+    branches: [ "main", "release/*" ]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+
+  publish-docker:
+    name: Push Docker Image
+    runs-on: ubuntu-latest
+    needs: build
+    env:
+      DOCKER_IMAGE_NAME: isaacnborges/s4capital-challenge-api
+    
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+
+      - name: Docker login
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build Docker image
+        run: docker image build -t ${{ env.DOCKER_IMAGE_NAME }}:${{ github.sha }} -t ${{ env.DOCKER_IMAGE_NAME }}:latest -f src/Dockerfile .
+
+      - name: Push Docker image
+        run: docker image push --all-tags ${{ env.DOCKER_IMAGE_NAME }}
