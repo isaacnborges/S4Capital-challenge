@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>S4Capital.Api</name>
+    </assembly>
+    <members>
+        <member name="M:S4Capital.Api.Api.Controllers.PostsController.GetAllPublishedPosts">
+            <summary>
+            Get all published posts
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S4Capital.Api.Api.Controllers.PostsController.AddCommentPublishedPost(System.Guid,S4Capital.Api.Api.Dtos.Commands.AddCommentCommand)">
+            <summary>
+            Add comment to a published post
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S4Capital.Api.Api.Controllers.PostsController.GetPostByWriter">
+            <summary>
+            Get post by writer
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S4Capital.Api.Api.Controllers.PostsController.CreatePost(S4Capital.Api.Api.Dtos.Commands.CreatePostCommand)">
+            <summary>
+            Create a post
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:S4Capital.Api.Api.Controllers.PostsController.EditPost(System.Guid,S4Capital.Api.Api.Dtos.Commands.EditPostCommand)">
+            <summary>
+            Edit a post
+            </summary>
+            <param name="id"></param>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:S4Capital.Api.Api.Controllers.PostsController.SubmitPost(System.Guid)">
+            <summary>
+            Submit(publish) a post with approval status
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:S4Capital.Api.Api.Controllers.PostsController.GetPendingPosts">
+            <summary>
+            Get pending posts
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:S4Capital.Api.Api.Controllers.PostsController.ApprovePost(System.Guid)">
+            <summary>
+            Approve a post
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:S4Capital.Api.Api.Controllers.PostsController.RejectPost(System.Guid,S4Capital.Api.Api.Dtos.Commands.RejectPostCommand)">
+            <summary>
+            Reject a post
+            </summary>
+            <param name="id"></param>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="T:S4Capital.Api.Domain.Resources.Resource">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:S4Capital.Api.Domain.Resources.Resource.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:S4Capital.Api.Domain.Resources.Resource.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:S4Capital.Api.Domain.Resources.Resource.PostNotFound">
+            <summary>
+              Looks up a localized string similar to Post not found.
+            </summary>
+        </member>
+        <member name="T:S4Capital.Api.Migrations.DatabaseCreation">
+            <inheritdoc />
+        </member>
+        <member name="M:S4Capital.Api.Migrations.DatabaseCreation.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:S4Capital.Api.Migrations.DatabaseCreation.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:S4Capital.Api.Migrations.DatabaseCreation.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

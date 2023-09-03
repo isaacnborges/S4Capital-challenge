@@ -1,0 +1,38 @@
+version: "3.9"
+
+networks:
+  s4network:
+
+services:
+
+  database:
+    container_name: mssql
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    volumes:
+      - ./mssqldb/data:/var/opt/mssql/data
+      - ./mssqldb/log:/var/opt/mssql/log
+      - ./mssqldb/secrets:/var/opt/mssql/secrets
+      - ./database/backup:/var/opt/mssql/backup
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: OIbQY%D2TDWO
+      MSSQL_PID: Express
+    ports:
+      - "1433:1433"
+      - "1434:1434/udp"
+    networks:
+     - s4network
+
+  api:
+    container_name: api
+    hostname: api
+    build:
+      context: .
+      dockerfile: src/Dockerfile
+    env_file:
+      - .env
+    ports:
+      - "8000:80"
+    restart: unless-stopped
+    networks:
+     - s4network
