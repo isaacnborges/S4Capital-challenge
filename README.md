@@ -71,7 +71,7 @@ dotnet test .\tests\Number8.Tests.csproj
 
 ### Documentation
 - Postman
-    - Open `docs` folder, inside has a [postman](https://www.postman.com/) collection that could be used for test.
+    - Open [docs](https://github.com/isaacnborges/S4Capital-challenge/tree/main/docs) folder, inside has a [postman](https://www.postman.com/) collection that could be used for test.
 - Swagger - After run the api the swagger endpoint will be available
     - [http://localhost:8000/swagger/](http://localhost:8000/swagger/index.html)
 
