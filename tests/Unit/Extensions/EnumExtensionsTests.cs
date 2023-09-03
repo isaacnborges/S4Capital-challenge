@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
+using S4Capital.Api.Core.Extensions;
 using S4Capital.Api.Domain.Entities;
-using S4Capital.Api.Extensions;
 
 namespace S4Capital.Tests.Unit.Extensions;
 public class EnumExtensionsTests

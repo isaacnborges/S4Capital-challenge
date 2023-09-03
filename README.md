@@ -11,13 +11,11 @@ The solution is structured as follows:
 
 ## Project information
 
-The project adopted a structured approach with a clear separation of concerns. The project is organized into distinct folders: 
+The S4Capital project adopts a straightforward and pragmatic approach by containing all its components within a single project. The project adopted a structured approach with a clear separation of concerns, organized into distinct folders: 
 - Api 
 - Core 
 - Domain
-- Infrastructure. 
-
-This approach brings several advantages to our development process.
+- Infrastructure
 
 By isolating different components of the application into their respective folders, it 
 create a clear boundary for each part of the system. This separation allows us to focus on one aspect at a time, making it easier to understand, modify, and extend our codebase.

@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Http;
 using Moq;
 using Moq.AutoMock;
+using S4Capital.Api.Core.Extensions;
 using S4Capital.Api.Domain.CommandHandlers;
 using S4Capital.Api.Domain.Entities;
-using S4Capital.Api.Extensions;
 using S4Capital.Api.Infrastructure.Repositories;
 using S4Capital.Tests.Support;
 using S4Capital.Tests.Support.Mocks.Dtos.Commands;

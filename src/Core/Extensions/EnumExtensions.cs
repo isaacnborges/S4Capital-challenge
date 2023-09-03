@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace S4Capital.Api.Extensions;
+namespace S4Capital.Api.Core.Extensions;
 
 public static class EnumExtensions
 {

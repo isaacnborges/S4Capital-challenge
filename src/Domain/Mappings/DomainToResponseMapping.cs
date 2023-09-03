@@ -1,6 +1,6 @@
 ﻿using S4Capital.Api.Api.Dtos.Responses;
+using S4Capital.Api.Core.Extensions;
 using S4Capital.Api.Domain.Entities;
-using S4Capital.Api.Extensions;
 
 namespace S4Capital.Api.Domain.Mappings;
 
