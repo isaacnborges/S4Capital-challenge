@@ -299,7 +299,7 @@ public class PostRepositoryTests
         };
     }
 
-    private async Task<Post?> GetPostById(Post post)
+    private async Task<Post> GetPostById(Post post)
     {
         return await _dbContext
             .Posts

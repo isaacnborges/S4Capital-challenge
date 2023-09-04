@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+        - name: s4capital-api
+          image: isaacnborges/s4capital-challenge-api
+          ports:
+            - containerPort: 80
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: PRODUCTION
+            - name: ConnectionStrings__DatabaseConnection
+              value: "Server=mssql-service,1433;User ID=sa;Password=OIbQY%D2TDWO;Database=S4CapitalDatabase;TrustServerCertificate=true;"
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "0.2"
+            limits:
+              memory: "1Gi"
+              cpu: "0.5"
+          volumeMounts:
+            - name: logs-volume
+              mountPath: /logs
+      volumes:
+        - name: logs-volume
+          hostPath:
+            path: /path/to/host/logs/directory

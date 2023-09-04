@@ -22,14 +22,14 @@ create a clear boundary for each part of the system. This separation allows us t
 
 The project embraced the Commands and Queries pattern using MediatR. This pattern further reduces coupling between components. Commands represent actions that change the state of the system, while Queries retrieve information without side effects. This separation not only simplifies unit testing but also ensures that changes to one part of the system have minimal impact on others.
 
-### Technologies Used in the project
+### Technologies used in the project
 - [.Net 7](https://dotnet.microsoft.com/download/dotnet/7.0)
 - [ASP.NET](https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-7.0?view=aspnetcore-7.0)
 - [Sql Server 2019](https://www.microsoft.com/sql-server/sql-server-2019)
 - [MediatR](https://github.com/jbogard/MediatR)
 - [FluentValidation](https://fluentvalidation.net/) for request Dto validations
 
-### Technologies Used in the tests
+### Technologies used in the test project
 - [.Net 7](https://dotnet.microsoft.com/download/dotnet/7.0)
 - [TestContainers](https://dotnet.testcontainers.org/)
 - [xUnit](https://xunit.net/) for testing
@@ -72,7 +72,7 @@ dotnet test .\tests\Number8.Tests.csproj
 ### Documentation
 - Postman
     - Open [docs](https://github.com/isaacnborges/S4Capital-challenge/tree/main/docs) folder, inside has a [postman](https://www.postman.com/) collection that could be used for test.
-- Swagger - After run the api the swagger endpoint will be available
+- Swagger - After run the api, the swagger endpoint will be available
     - [http://localhost:8000/swagger/](http://localhost:8000/swagger/index.html)
 
 <img src="https://raw.githubusercontent.com/isaacnborges/S4Capital-challenge/main/images/swagger.png"/>
@@ -118,6 +118,22 @@ User Information:
     - Password: `Password123`
 
 These predefined users allow for easy testing and demonstration of the API's role-based authentication and authorization mechanisms. 
+
+### Deploying on Kubernetes
+If you want to deploy this application on a [Kubernetes](https://kubernetes.io/) cluster, follow these steps:
+1. Make sure you have `kubectl` configured to point to your Kubernetes cluster.
+2. Navigate to the [k8s](https://github.com/isaacnborges/S4Capital-challenge/tree/main/k8s) directory in the root of this repository:
+3. Apply the Kubernetes configurations for both the API and the database using the following commands:
+
+```bash
+kubectl apply -f database/deployment.yaml
+kubectl apply -f database/service.yaml
+kubectl apply -f database/mssql-data-claim.yaml
+kubectl apply -f api/deployment.yaml
+kubectl apply -f api/service.yaml
+```
+4. Once the resources are applied successfully, the API will be available within your Kubernetes cluster.
+5. To access the API, you can use the NodePort service. The API will be available on port 30010. You can access it via: [http://localhost:30010/swagger/](http://localhost:30010/swagger/index.html)
 
 #### Considerations and Future Improvements
 Pagination Strategy: The current implementation doesn't include pagination for large datasets. Implementing a pagination strategy will improve the performance of API endpoints when dealing with a large number of records.
