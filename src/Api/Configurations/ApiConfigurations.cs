@@ -21,7 +21,7 @@ public static class ApiConfigurations
     public static IApplicationBuilder UseApiConfiguration(this IApplicationBuilder app)
     {
         app.UseHttpsRedirection();
-        app.UseCustomExceptionMiddleware(x => x.ViewStackTrace = true);
+        app.UseCustomExceptionMiddleware();
         app.UseRouting();
 
         app.UseAuthentication();

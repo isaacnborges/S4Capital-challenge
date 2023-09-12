@@ -33,18 +33,13 @@ public class IntegrationTestWebAppFactory : WebApplicationFactory<Startup>, IAsy
             services.AddDbContext<BlogDbContext>(options =>
                 options.UseSqlServer(_dbContainer.GetConnectionString()));
 
-
-            var defaultClaims = new List<Claim>()
+            var defaultClaims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, ClaimsPrincipalMock.DefaultUserId)
             };
 
             services.AddSingleton<IPolicyEvaluator>(x => new PolicyEvaluatorHelper(defaultClaims));
-
-            services.AddMvcCore(options =>
-            {
-                options.Filters.Add(new UserFilterHelper(defaultClaims));
-            });
+            services.AddMvcCore(options => options.Filters.Add(new UserFilterHelper(defaultClaims)));
         });
     }
 
