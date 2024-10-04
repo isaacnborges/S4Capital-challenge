@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization.Policy;
+﻿using DotNet.Testcontainers.Builders;
+using Microsoft.AspNetCore.Authorization.Policy;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
@@ -15,7 +16,8 @@ public class IntegrationTestWebAppFactory : WebApplicationFactory<Startup>, IAsy
 {
     private readonly MsSqlContainer _dbContainer = new MsSqlBuilder()
         .WithImage("mcr.microsoft.com/mssql/server:2019-latest")
-        .WithPassword("Strong_password_123!")
+        .WithCleanUp(true)
+        .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(1433))
         .Build();
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)
@@ -35,7 +37,7 @@ public class IntegrationTestWebAppFactory : WebApplicationFactory<Startup>, IAsy
 
             var defaultClaims = new List<Claim>
             {
-                new Claim(ClaimTypes.NameIdentifier, ClaimsPrincipalMock.DefaultUserId)
+                new(ClaimTypes.NameIdentifier, ClaimsPrincipalMock.DefaultUserId)
             };
 
             services.AddSingleton<IPolicyEvaluator>(x => new PolicyEvaluatorHelper(defaultClaims));

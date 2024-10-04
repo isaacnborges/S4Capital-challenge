@@ -47,16 +47,13 @@ public class AuthController : ControllerBase
         var userRoles = await _userManager.GetRolesAsync(user);
         var claims = new List<Claim>
         {
-            new Claim(JwtRegisteredClaimNames.Sub, user.Id),
-            new Claim(JwtRegisteredClaimNames.Name, user.UserName),
-            new Claim(JwtRegisteredClaimNames.Email, user.Email),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            new(JwtRegisteredClaimNames.Sub, user.Id),
+            new(JwtRegisteredClaimNames.Name, user.UserName),
+            new(JwtRegisteredClaimNames.Email, user.Email),
+            new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
 
-        foreach (var userRole in userRoles)
-        {
-            claims.Add(new Claim("role", userRole));
-        }
+        claims.AddRange(userRoles.Select(role => new Claim("role", role)));
 
         return claims;
     }

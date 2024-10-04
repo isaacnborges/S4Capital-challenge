@@ -66,7 +66,7 @@ docker-compose up
 3. Run the following command to execute the tests:
 
 ```
-dotnet test .\tests\Number8.Tests.csproj
+dotnet test .\tests\S4Capital.Tests.csproj
 ```
 
 ### Documentation

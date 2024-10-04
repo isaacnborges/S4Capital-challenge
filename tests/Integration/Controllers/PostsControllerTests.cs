@@ -1,11 +1,9 @@
-﻿using CustomExceptionMiddleware.Responses;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using S4Capital.Api.Api.Dtos.Commands;
 using S4Capital.Api.Api.Dtos.Responses;
 using S4Capital.Api.Core.Extensions;
