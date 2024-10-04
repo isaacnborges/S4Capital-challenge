@@ -18,7 +18,7 @@ spec:
             claimName: mssql-data-claim
       containers:
         - name: mssql
-          image: mcr.microsoft.com/mssql/server:2019-latest
+          image: mcr.microsoft.com/mssql/server:2022-latest
           env:
             - name: "ACCEPT_EULA"
               value: "Y"

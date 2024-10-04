@@ -23,20 +23,20 @@ create a clear boundary for each part of the system. This separation allows us t
 The project embraced the Commands and Queries pattern using MediatR. This pattern further reduces coupling between components. Commands represent actions that change the state of the system, while Queries retrieve information without side effects. This separation not only simplifies unit testing but also ensures that changes to one part of the system have minimal impact on others.
 
 ### Technologies used in the project
-- [.Net 7](https://dotnet.microsoft.com/download/dotnet/7.0)
-- [ASP.NET](https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-7.0?view=aspnetcore-7.0)
-- [Sql Server 2019](https://www.microsoft.com/sql-server/sql-server-2019)
+- [.Net 8](https://dotnet.microsoft.com/download/dotnet/8.0)
+- [ASP.NET](https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-8.0?view=aspnetcore-8.0)
+- [Sql Server 2022](https://www.microsoft.com/sql-server/sql-server-2022)
 - [MediatR](https://github.com/jbogard/MediatR)
 - [FluentValidation](https://fluentvalidation.net/) for request Dto validations
 
 ### Technologies used in the test project
-- [.Net 7](https://dotnet.microsoft.com/download/dotnet/7.0)
+- [.Net 8](https://dotnet.microsoft.com/download/dotnet/8.0)
 - [TestContainers](https://dotnet.testcontainers.org/)
 - [xUnit](https://xunit.net/) for testing
 - [Bogus](https://github.com/bchavez/Bogus) for generating mock objects
 - [Moq](https://github.com/moq/moq) and AutoMoq for unit testing
 - [FluentAssertions](https://fluentassertions.com/) for more readable and expressive assertions
-- [AspNetCore Testing](https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-7.0) for integration tests using `WebApplicationFactory`
+- [AspNetCore Testing](https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-8.0) for integration tests using `WebApplicationFactory`
 
 ## Dependencies 
 
@@ -44,7 +44,7 @@ The project embraced the Commands and Queries pattern using MediatR. This patter
 
 ## Build
 To build the project, follow the instructions below:
-1. Make sure you have [.Net 7](https://dotnet.microsoft.com/download/dotnet/7.0) installed.
+1. Make sure you have [.Net 8](https://dotnet.microsoft.com/download/dotnet/8.0) installed.
 2. In the terminal, navigate to the root directory of the project.
 3. Run the following command to execute the project:
 ```
@@ -107,15 +107,15 @@ The following roles are available: `Writer`, `Editor`, and `Public`.
 User Information:
 - Writer Role:
     - Users: `writer1`, `writer2`
-    - Password: `Password123`
+    - Password: `@Password123`
 
 - Editor Role:
     - Users: `editor1`, `editor2`
-    - Password: `Password123`
+    - Password: `@Password123`
 
 - Public Role:
     - Users: `public1`, `public2`
-    - Password: `Password123`
+    - Password: `@Password123`
 
 These predefined users allow for easy testing and demonstration of the API's role-based authentication and authorization mechanisms. 
 

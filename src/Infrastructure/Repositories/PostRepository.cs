@@ -28,9 +28,7 @@ public class PostRepository : IPostRepository
     {
         return await _dbContext
             .Posts
-            .SingleOrDefaultAsync(post =>
-                post.Id == id &&
-                post.Status == PostStatus.Pending);
+            .SingleOrDefaultAsync(post => post.Id == id && post.Status == PostStatus.Pending);
     }
 
     public async Task<Post> GetPendingByIdAndAuthorAsync(Guid id, string authorId)
@@ -98,7 +96,7 @@ public class PostRepository : IPostRepository
 
     public async Task AddCommentAsync(Comment comment)
     {
-        _dbContext.Comments.Add(comment);
+        await _dbContext.Comments.AddAsync(comment);
         await _dbContext.SaveChangesAsync();
     }
 }

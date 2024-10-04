@@ -5,17 +5,16 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using S4Capital.Api;
 using S4Capital.Api.Infrastructure;
 using S4Capital.Tests.Support;
 using System.Security.Claims;
 using Testcontainers.MsSql;
 
 namespace S4Capital.Tests.Integration;
-public class IntegrationTestWebAppFactory : WebApplicationFactory<Startup>, IAsyncLifetime
+public class IntegrationTestWebAppFactory : WebApplicationFactory<Program>, IAsyncLifetime
 {
     private readonly MsSqlContainer _dbContainer = new MsSqlBuilder()
-        .WithImage("mcr.microsoft.com/mssql/server:2019-latest")
+        .WithImage("mcr.microsoft.com/mssql/server:2022-latest")
         .WithCleanUp(true)
         .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(1433))
         .Build();

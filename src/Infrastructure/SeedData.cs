@@ -115,7 +115,6 @@ public static class SeedData
             NormalizedUserName = "EDITOR2"
         };
 
-
         var password = "@Password123";
         var ph = new PasswordHasher<IdentityUser>();
         public1.PasswordHash = ph.HashPassword(public1, password);

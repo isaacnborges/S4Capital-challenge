@@ -10,7 +10,7 @@ public static class ApiConfigurations
     {
         services
             .AddControllers(options => options.Filters.Add(new ModelValidationActionFilter()))
-            .AddFluentValidation(options => options.RegisterValidatorsFromAssemblyContaining<Startup>())
+            .AddFluentValidation(options => options.RegisterValidatorsFromAssemblyContaining<Program>())
             .ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter = true);
 
         services.AddEndpointsApiExplorer();
